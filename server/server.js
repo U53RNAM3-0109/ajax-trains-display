@@ -6,7 +6,7 @@ const http = require('https');
 
 
 function get_trains(request, response) {
-
+    console.log("Recieved request at /train-data");
     let trainData = {
   "trains": [
     {
@@ -970,3 +970,12 @@ function get_trains(request, response) {
 }
 
 app.get('/train-data', get_trains);
+app.get('/', function(request, response) {
+  console.log("Recieved request at /");
+  response.send("Node server with docker, on port 82.");
+})
+
+
+app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
+})

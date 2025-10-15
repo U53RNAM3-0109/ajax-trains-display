@@ -7,7 +7,7 @@ services:
     volumes:
       - ./client:/usr/src/app
     ports:
-      - "81:8000"
+      - "81:8100"
     command: sh -c "
       chmod +x run.sh &&
       ./run.sh"
@@ -29,7 +29,7 @@ services:
       context: ./nginx-proxy
       dockerfile: Dockerfile
     ports:
-      - "83:8000"
+      - "80:8000"
     depends_on:
       - node-client
       - node-server
